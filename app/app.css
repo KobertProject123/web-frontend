@@ -13,3 +13,21 @@ body {
     color-scheme: dark;
   }
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  background-color: lightgray;
+  border-radius: 10px;
+}
+
+.my-menu-item {
+  cursor: pointer;
+  margin: 3px 5px;
+  transition: border-color 0.3s, background 0.3s,
+    padding calc(0.3s + 0.1s) cubic-bezier(0.645, 0.045, 0.355, 1);
+}

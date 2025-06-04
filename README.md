@@ -1,38 +1,24 @@
-# Welcome to React Router!
-
-A modern, production-ready template for building full-stack React applications using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
-
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
-
 ## Getting Started
 
-### Installation
+### 의존성 설치
 
-Install the dependencies:
+다음 명령어로 의존성 패키지들을 설치합니다:
 
 ```bash
 npm install
 ```
 
-### Development
+### 서버 실행
 
-Start the development server with HMR:
+다음 명령어를 통해 서버를 실행 가능합니다:
 
 ```bash
 npm run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+### 대화 정보
+
+다음 주소로 접속하여 확인 가능합니다 `http://localhost:5173/conversations`.
 
 ## Building for Production
 
