@@ -23,14 +23,14 @@ interface ConversationItem {
 
 const CONTAINER_HEIGHT = 400;
 const PAGE_SIZE = 20;
-const category = "TL일,직장";
-const CategoryList: React.FC = () => {
+function CategoryList({ category_id }) {
   const [data, setData] = useState<ConversationItem[]>([]);
   const [page, setPage] = useState(1);
 
   const appendData = (showMessage = true) => {
-    const dataUrl = `http://localhost:5000/api/conversation?category_id=${category}&index=${page}`;
-    fetch(dataUrl)
+    const dataUrl = `http://localhost:5000/api/conversation?category_id=${category_id}&index=${page}`;
+    console.log(dataUrl);
+    fetch(dataUrl, { cache: "no-store" })
       .then((res) => res.json())
       .then((body) => {
         const results = Array.isArray(body["items"]) ? body["items"] : [];
@@ -93,6 +93,6 @@ const CategoryList: React.FC = () => {
       </VirtualList>
     </List>
   );
-};
+}
 
 export default CategoryList;

@@ -4,10 +4,8 @@ import ConversationInfoList from "~/ui/conversation/categoryCollapse";
 
 export async function clientLoader({ params }: Route.ClientLoaderArgs) {
   const categories = await getCategories();
-  const conversations = await getConversations("category_id");
   return {
-    categories: categories,
-    conversations: conversations,
+    categories: categories["categories"],
   };
 }
 
@@ -15,10 +13,7 @@ export default function Page({ loaderData }: Route.ComponentProps) {
   console.log(loaderData);
   return (
     <div>
-      <ConversationInfoList
-        categories={loaderData["categories"]}
-        conversations={loaderData["conversations"]}
-      />
+      <ConversationInfoList categories={loaderData["categories"]} />
     </div>
   );
 }

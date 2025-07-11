@@ -16,13 +16,19 @@ export type utterances = {
 }[];
 
 export async function getCategories() {
-  return [
-    { category_id: "가족" },
-    { category_id: "반려동물" },
-    { category_id: "식음료" },
-    { category_id: "연애/결혼" },
-    { category_id: "여가,오락" },
-  ];
+  try {
+    const response = await fetch(`http://localhost:5000/api/category`, {
+      cache: "no-store",
+    });
+    if (!response.ok) {
+      console.log(response);
+      return undefined;
+    }
+    return response.json();
+  } catch (error) {
+    console.log(error);
+    return undefined;
+  }
 }
 
 export async function getUtternaces(conversationId: string) {

@@ -4,11 +4,12 @@ import { CategoryTable, type UtterancesInCategory } from "./categoryTable";
 import { getConversations } from "~/data/api";
 import CategoryList from "./categoryList";
 
-export default function ConversationInfoList({ categories, conversations }) {
+export default function ConversationInfoList({ categories }) {
+  console.log(categories);
   const items: CollapseProps["items"] = categories.map((category, index) => ({
     key: index,
-    label: category["category_id"],
-    children: <CategoryList></CategoryList>,
+    label: category,
+    children: <CategoryList category_id={category}></CategoryList>,
   }));
 
   return (
