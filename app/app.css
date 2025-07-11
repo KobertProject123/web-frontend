@@ -31,3 +31,17 @@ body {
   transition: border-color 0.3s, background 0.3s,
     padding calc(0.3s + 0.1s) cubic-bezier(0.645, 0.045, 0.355, 1);
 }
+
+.selected-utterance {
+  background-color: #e0f2fe;
+}
+
+.move-up:hover {
+  transform: translateY(-20%);
+  transition: 0.1s ease-in;
+}
+
+.move-down:hover {
+  transform: translateY(20%);
+  transition: 0.1s ease-in;
+}

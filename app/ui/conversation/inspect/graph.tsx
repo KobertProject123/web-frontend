@@ -15,9 +15,16 @@ export default function Graph({
   const centerX = width / 2;
   const centerY = height / 2;
 
-  const points = utterances.map((utterance, index) => {
-    return getPolarPosition(index, utterances.length, utterance.intimacy, unit);
-  });
+  const points = utterances
+    .map((utterance, index) => {
+      return getPolarPosition(
+        index,
+        utterances.length - 1,
+        utterance.backward_intimacy * 5,
+        unit
+      );
+    })
+    .slice(0, -1);
 
   const linePoints = points.flatMap((point) => [
     centerX + point.x,

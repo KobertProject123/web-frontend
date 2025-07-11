@@ -3,12 +3,15 @@ import { Space, Table, Tag } from "antd";
 import { Link } from "react-router";
 
 export interface UtterancesInCategory {
-  category: string;
-  utterances: {
-    id: string;
-    title: string;
-    personas: string[];
-    length: number;
+  index: number;
+  max: number;
+  conversations: {
+    conversation_id: string;
+    category_id: string;
+    personas: {
+      persona_id: number;
+      profile_minors: string[];
+    }[];
   }[];
 }
 
@@ -60,13 +63,13 @@ const columns: TableProps<DataType>["columns"] = [
 ];
 
 export function CategoryTable({ items }: { items: UtterancesInCategory }) {
-  const data: DataType[] = items.utterances.map((item, index) => ({
+  const data: DataType[] = items.conversations.map((item, index) => ({
     key: index,
-    title: item.title,
-    persona_1: item.personas[0],
-    persona_2: item.personas[1],
-    tag: items.category,
-    linkId: item.id,
+    title: item.conversation_id,
+    persona_1: `${item.personas[0]["profile_minors"][0]}, ${item.personas[0]["profile_minors"][1]}`,
+    persona_2: `${item.personas[1]["profile_minors"][0]}, ${item.personas[1]["profile_minors"][1]}`,
+    tag: item.category_id,
+    linkId: item.conversation_id,
   }));
   return (
     <>

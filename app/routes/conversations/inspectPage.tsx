@@ -1,10 +1,10 @@
-import { fakeApi2 } from "~/data/api";
+import { getUtternaces } from "~/data/api";
 import type { Route } from "./+types/inspectPage";
 import ConversationList from "~/ui/conversation/inspect/conversations";
 
 export async function clientLoader({ params }: Route.ClientLoaderArgs) {
-  const res = await fakeApi2.fetch(Number(params.utteranceId));
-  const data = await res.json();
+  console.log(params);
+  const data = await getUtternaces(params["utteranceId"]);
   return data;
 }
 
